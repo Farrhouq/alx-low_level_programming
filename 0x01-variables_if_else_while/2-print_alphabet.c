@@ -7,12 +7,12 @@
 */
 int main(void)
 {
-	int i;
+	char i;
 
 	for (i = 97; i < 123; i++)
 	{
-		printf("%c", i);
+		putchar(i);
 	}
-	printf("\n");
+	putchar(10);
 	return (0);
 }
