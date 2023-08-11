@@ -12,15 +12,25 @@ int main(void)
 	int j;
 	int k;
 	int l;
+	int next_k;
+	int next_l;
 
 	for (i = 48; i < 58; i++)
 	{
 		for (j = 48; j < 58; j++)
 		{
 
-			for (k = i; k < 58; k++)
+			next_k = i;
+			next_l = j + 1;
+			if (j == 9)
 			{
-				for (l = i + i; l < 58; l++)
+				next_k = i + 1;
+				next_l = 48;
+			}
+
+			for (k = next_k; k < 58; k++)
+			{
+				for (l = next_l; l < 58; l++)
 				{
 					putchar(i);
 					putchar(j);
