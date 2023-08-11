@@ -4,6 +4,11 @@
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
+/**
+ * main - checks if a random number generated is positive,
+ * negative, or zero
+ * Return: 0 if no error; any other int otherwise
+ */
 int main(void)
 {
 	int n;
