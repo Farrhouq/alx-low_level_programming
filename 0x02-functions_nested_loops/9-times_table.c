@@ -17,9 +17,16 @@ void times_table(void)
 			first_digit = multiplied / 10;
 			last_digit = multiplied % 10;
 
-			_putchar(first_digit + '0');
-			_putchar(last_digit + '0');
+			if (b != 0)
+			{
+			_putchar(',');
 			_putchar(' ');
+			if (!first_digit)
+				_putchar(' ');
+			else
+				_putchar(first_digit + '0');
+			}
+			_putchar(last_digit + '0');
 
 			b++;
 		}
