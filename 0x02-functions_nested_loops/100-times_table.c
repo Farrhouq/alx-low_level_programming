@@ -1,10 +1,12 @@
 #include "main.h"
 
 /**
- * times_table - outputs the n times table
+ * print_times_table - outputs the n times table
+ * Description: prints the n-times table from 0 to n
  * @n: the times table to be printed
+ *
+ * Return: always 0
  */
-
 void print_times_table(int n)
 {
 	int a = 0, b, multiplied, last_digit, first_digit, second_digit;
