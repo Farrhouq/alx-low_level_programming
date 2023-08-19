@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 
 /**
  * fibonacci - prints the first 100 fibonacci numbers
