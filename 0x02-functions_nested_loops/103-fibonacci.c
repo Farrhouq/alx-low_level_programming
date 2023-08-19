@@ -7,8 +7,8 @@
 */
 int main(void)
 {
-	long int prev1, prev2, next;
-	int i, total;
+	long int prev1, prev2, next, total;
+	int i;
 
 	prev1 = 1;
 	prev2 = 2;
