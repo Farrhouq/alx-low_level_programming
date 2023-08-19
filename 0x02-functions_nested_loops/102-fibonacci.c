@@ -20,7 +20,7 @@ int main(void)
 		prev1 = prev2;
 		prev2 = next;
 		printf("%ld", next);
-		if (i != 49)
+		if (i != 47)
 			printf(", ");
 	}
 	putchar('\n');
