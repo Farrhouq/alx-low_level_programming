@@ -8,7 +8,7 @@
 int main(void)
 {
 	long int prev1, prev2, next;
-	int i;
+	int i, total;
 
 	prev1 = 1;
 	prev2 = 2;
@@ -20,10 +20,8 @@ int main(void)
 		prev1 = prev2;
 		prev2 = next;
 		if (next % 2 == 0)
-			printf("%ld", next);
-		if (i != 47)
-			printf(", ");
+			total += next;
 	}
-	putchar('\n');
+	printf("%ld\n", total);
 	return (0);
 }
