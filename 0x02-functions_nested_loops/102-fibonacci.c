@@ -5,7 +5,7 @@
 /**
  * fibonacci - prints the first 100 fibonacci numbers
 */
-void fibonacci()
+void fibonacci(void)
 {
 	long int prev1, prev2, next;
 	int i;
@@ -24,5 +24,4 @@ void fibonacci()
 			printf(", ");
 	}
 	putchar('\n');
-
 }
