@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 /**
- * fibonacci - prints the first 100 fibonacci numbers
+ * main - prints the first 100 fibonacci numbers
+ * Return: 0 always
 */
-void fibonacci(void)
+int main(void)
 {
 	long int prev1, prev2, next;
 	int i;
@@ -23,4 +24,5 @@ void fibonacci(void)
 			printf(", ");
 	}
 	putchar('\n');
+	return (0);
 }
