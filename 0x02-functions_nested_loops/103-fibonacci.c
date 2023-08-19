@@ -12,9 +12,9 @@ int main(void)
 
 	prev1 = 1;
 	prev2 = 2;
+	total = 0;
 
-	printf("%ld, %ld, ", prev1, prev2);
-	for (i = 0; i < 4000000; i++)
+	for (i = 0; i <= 4000000; i++)
 	{
 		next = prev1 + prev2;
 		prev1 = prev2;
