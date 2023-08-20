@@ -14,13 +14,13 @@ int main(void)
 	prev2 = 2;
 
 	printf("%ld, %ld, ", prev1, prev2);
-	for (i = 0; i < 93; i++)
+	for (i = 0; i < 83; i++)
 	{
 		next = prev1 + prev2;
 		prev1 = prev2;
 		prev2 = next;
 		printf("%ld", next);
-		if (i != 93)
+		if (i != 83)
 			printf(", ");
 	}
 	putchar('\n');
