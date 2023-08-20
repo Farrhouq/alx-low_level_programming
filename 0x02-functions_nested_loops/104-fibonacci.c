@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * main - prints the first 100 fibonacci numbers
+ * main - prints the first 98 fibonacci numbers
  * Return: 0 always
 */
 int main(void)
