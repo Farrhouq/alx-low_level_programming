@@ -7,7 +7,7 @@
 */
 int main(void)
 {
-	long int prev1, prev2, next, total, current;
+	long int prev1, prev2, next, total;
 
 	prev1 = 1;
 	prev2 = 2;
