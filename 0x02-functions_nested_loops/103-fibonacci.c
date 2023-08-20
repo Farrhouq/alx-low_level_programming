@@ -7,14 +7,14 @@
 */
 int main(void)
 {
-	long int prev1, prev2, next, total;
-	int i;
+	long int prev1, prev2, next, total, current;
 
 	prev1 = 1;
 	prev2 = 2;
 	total = 0;
+	next = 0;
 
-	for (i = 0; i <= 4000000; i++)
+	while (next <= 4000000)
 	{
 		next = prev1 + prev2;
 		prev1 = prev2;
