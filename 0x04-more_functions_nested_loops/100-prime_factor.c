@@ -3,9 +3,9 @@
 #include <math.h>
 /**
  * main - prints the largest print number of 612852475143
- * 
- * 
- * Return: 0 for success and none 0 otherwise 
+ *
+ *
+ * Return: 0 for success and none 0 otherwise
  */
 int main(void)
 {
