@@ -26,6 +26,6 @@ int main(void)
     printf("%d\n", nb);
     nb = _atoi("---++++ -++ Sui - te -   402 #cisfun :)");
     printf("%d\n", nb);*/
-    printf("%d\n", _atoi("42aaaaa"));
+    printf("%d\n", _atoi("-2147483648"));
     return (0);
 }
