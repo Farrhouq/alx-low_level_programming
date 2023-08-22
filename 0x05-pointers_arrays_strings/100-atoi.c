@@ -10,7 +10,7 @@
 
 int _atoi(char *s)
 {
-	long res = 0, i, minus = 0;
+	int res = 0, i, minus = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
