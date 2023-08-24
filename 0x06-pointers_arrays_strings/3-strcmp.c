@@ -7,11 +7,12 @@
  * @s1: the first string
  * @s2: the second string
  *
+ * printf("%c against %c... = %d\n", s1[j], s2[j], s1[j] - s2[j]);
  * Return: the difference
-*/
+ */
 int _strcmp(char *s1, char *s2)
 {
-	int i, k, res;
+	int i, j, k, res;
 
 	i = 0;
 	k = 0;
@@ -21,14 +22,16 @@ int _strcmp(char *s1, char *s2)
 	while (s2[k])
 		k++;
 
-	/*
-	for (j = 0; j < (i <= k ? i : k); j++)
+	j = 0;
+	while ((s1[j] && s2[j]) && (j < (i >= k ? i : k)))
 	{
-		printf("%c against %c... = %d\n", s1[j], s2[j], s1[j] - s2[j]);
+		if (s1[j] != s2[j])
+		{
+			res = s1[j] - s2[j];
+			break;
+		}
+		j++;
 	}
-	*/
-	res += s1[0] - s2[0];
 
 	return (res);
 }
-
