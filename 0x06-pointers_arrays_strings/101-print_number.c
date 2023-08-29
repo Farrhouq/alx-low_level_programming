@@ -1,6 +1,4 @@
 #include "main.h"
-#include <limits.h>
-#include <stdio.h>
 
 /**
  * print_number - prints a number
@@ -21,7 +19,7 @@ void print_number(int n)
 		_putchar('-');
 	}
 
-	i = 10000000;
+	i = 1000000000;
 	while (i > 1)
 	{
 		if (((n / (i / 10)) % 10) || ((n / (i)) % 10))
