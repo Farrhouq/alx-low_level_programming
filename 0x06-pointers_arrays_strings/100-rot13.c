@@ -20,8 +20,8 @@ char *rot13(char *s)
 			if (s[i] == t[j])
 			{
 				mag = m[(j + 1) / 26];
+				s[i] = ((s[i] + 13 - mag) % 26) + mag;
 				break;
-			s[i] = ((s[i] + 13 - mag) % 26) + mag;
 			}
 		}
 
