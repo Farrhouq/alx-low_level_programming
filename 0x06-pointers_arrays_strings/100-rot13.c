@@ -20,7 +20,6 @@ char *rot13(char *s)
 			if (s[i] == t[j])
 			{
 				mag = m[(j + 1) / 26];
-				printf("This is mag:%d %c %d\n", mag, s[i], (j + 1) / 26);
 				break;
 			s[i] = ((s[i] + 13 - mag) % 26) + mag;
 			}
