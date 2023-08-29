@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * rot13 - encodes a string in rot13
@@ -18,12 +19,13 @@ char *rot13(char *s)
 		{
 			if (s[i] == t[j])
 			{
-				mag = m[(j + 1) / 46];
+				mag = m[(j + 1) / 26];
+				printf("This is mag:%d %c %d\n", mag, s[i], (j + 1) / 26);
 				break;
+			s[i] = ((s[i] + 13 - mag) % 26) + mag;
 			}
 		}
 
-		s[i] = ((s[i] + 13 - mag) % 26) + mag;
 		i++;
 	}
 	return (s);
