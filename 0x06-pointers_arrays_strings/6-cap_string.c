@@ -24,14 +24,6 @@ char *cap_string(char *s)
 				break;
 			}
 		}
-		for (j = 0; j < 14; j++)
-		{
-			if (s[i + 1] == delims[j])
-			{
-				isdelim = 0;
-				break;
-			}
-		}
 
 		if (isdelim && s[i + 1] && (s[i + 1] >= 97 && s[i + 1] <= 122))
 		{
