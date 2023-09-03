@@ -1,1 +1,1 @@
-This is static libraries
+projects on static libraries
