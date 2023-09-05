@@ -9,7 +9,7 @@
  */
 char **strtow(char *str)
 {
-	int i, j, wc, start;
+	int i, j, wc, start, rwc;
 	char *word, **array;
 
 	if (str == NULL)
@@ -18,18 +18,20 @@ char **strtow(char *str)
 	wc = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == ' ' && str[i + 1] != ' ')
+		if (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0')
 		{
 			wc++;
 		}
 		i++;
 	}
+
+
 	i = 0;
 	start = 0;
-	printf("there are %d words\n", wc);
-	array = malloc(sizeof(word) * (wc + 1));
+	array = malloc(sizeof(char *) * (wc + 1));
 	if (array == NULL)
 		return (NULL);
+	rwc = wc;
 	wc = 0;
 	while (str[i] != '\0')
 	{
@@ -39,7 +41,7 @@ char **strtow(char *str)
 			while (str[i] != ' ')
 				i++;
 
-			word = malloc(sizeof(char) * (i - start));
+			word = malloc(sizeof(char) * (i - start + 1));
 			if (word == NULL)
 				return (NULL);
 			for (j = 0; j < (i - start); j++)
@@ -48,8 +50,11 @@ char **strtow(char *str)
 			start = i + 1;
 			array[wc] = word;
 			wc++;
+			if (wc >= rwc + 1)
+				return (array);
 		}
-		i++;
+		else
+			i++;
 	}
 	return (array);
 }
