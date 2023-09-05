@@ -10,24 +10,24 @@
  */
 int main(int argc, char **argv)
 {
+	int i;
+	int res;
 
-    int i;
-    int res;
+	for (i = 1; i < argc; i++)
+	{
+		char *endptr;
+		long result = strtol(argv[i], &endptr, 10);
 
-    for (i = 1; i < argc; i++)
-    {
-        char *endptr;
-        long result = strtol(argv[i], &endptr, 10);
-        if (*endptr != '\0')
-        {
-            printf("Error\n");
-            return (1);
-        }
-        else
-        {
-            res += result;
-        }
-   }
-    printf("%d\n", res);
-    return (0);
+		if (*endptr != '\0')
+		{
+			printf("Error\n");
+			return (1);
+		}
+		else
+		{
+			res += result;
+		}
+	}
+	printf("%d\n", res);
+	return (0);
 }
