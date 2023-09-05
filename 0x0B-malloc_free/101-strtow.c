@@ -12,27 +12,30 @@ char *strdup_range(char *start, char *end);
  */
 char **strtow(char *str)
 {
+    int num_words = count_words(str);
+    int i = 0;
+    char **words;
+	words  = malloc((num_words + 1) * sizeof(char *));
+
     if (str == NULL || *str == '\0')
         return NULL;
 
-    int num_words = count_words(str);
     if (num_words == 0)
         return NULL;
 
-    char **words = malloc((num_words + 1) * sizeof(char *));
     if (words == NULL)
         return NULL;
 
-    int i = 0;
     while (*str != '\0')
     {
         if (*str != ' ')
         {
             char *word_start = str;
+            char *word_end;
             while (*str != ' ' && *str != '\0')
                 str++;
 
-            char *word_end = str;
+			word_end  = str;
             words[i] = strdup_range(word_start, word_end);
             if (words[i] == NULL)
             {
@@ -49,7 +52,7 @@ char **strtow(char *str)
         }
     }
 
-    words[i] = NULL; // Set the last element to NULL to mark the end of the array of words
+    words[i] = NULL;
     return words;
 }
 
@@ -92,12 +95,14 @@ int count_words(char *str)
 char *strdup_range(char *start, char *end)
 {
     int length = end - start;
+	int i;
+
     char *duplicate = malloc(length + 1);
 
     if (duplicate == NULL)
         return NULL;
 
-    for (int i = 0; i < length; i++)
+    for (i = 0; i < length; i++)
         duplicate[i] = start[i];
 
     duplicate[length] = '\0';
