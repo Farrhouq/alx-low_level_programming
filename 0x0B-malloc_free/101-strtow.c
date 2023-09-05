@@ -15,10 +15,13 @@ char **strtow(char *str)
 	if (str == NULL)
 		return (NULL);
 	i = 0;
+	wc = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == ' ' && str[i + 1] != ' ')
+		{
 			wc++;
+		}
 		i++;
 	}
 	i = 0;
