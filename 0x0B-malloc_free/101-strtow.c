@@ -35,9 +35,10 @@ char **strtow(char *str)
 	}
 	if (wc == 0)
 		return (NULL);
+
 	array = malloc(sizeof(char *) * (wc + 1));
-
-
+	if (array == NULL)
+		return (NULL);
 
 	wa = 0;
 	for (j = 0; j < i; j++)
@@ -52,46 +53,16 @@ char **strtow(char *str)
 				wl++;
 			}
 			word = malloc(sizeof(char) * wl);
+			if (word == NULL)
+				return (NULL);
 			
 			for (l = 0; l < wl; l++)
-			{
 				word[l] = str[l + start];
-			}
 
 			array[wa] = word;
 			wa++;
 		}
 	}
 
-	/*
-	i = 0;
-	start = 0;
-	if (array == NULL)
-		return (NULL);
-
-	printf("number of words: %d\n", wc);
-	wc = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] != ' '))
-		{
-			start = i;
-			while (str[i] != ' ')
-				i++;
-
-			word = malloc(sizeof(char) * (i - start + 1));
-			if (word == NULL)
-				return (NULL);
-			for (j = 0; j < (i - start); j++)
-				word[j] = str[j + start];
-			word[j] = '\0';
-			start = i + 1;
-			array[wc] = word;
-			wc++;
-		}
-		else
-			i++;
-	}
-	*/
 	return (array);
 }
