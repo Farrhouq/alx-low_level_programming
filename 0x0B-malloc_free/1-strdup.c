@@ -13,7 +13,7 @@ char *_strdup(char *str)
 	int i;
 	char *s;
 
-	s = malloc(sizeof(str));
+	s = malloc(sizeof(str) + 1);
 	if (s == NULL)
 		return (NULL);
 	i = 0;
@@ -22,5 +22,6 @@ char *_strdup(char *str)
 		s[i] = str[i];
 		i++;
 	}
+	s[i] = '\0';
 	return (s);
 }
