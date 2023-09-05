@@ -1,82 +1,104 @@
-#include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-/**
- * words_n - counts number of words in a string
- * @str: string
- *
- * Return: number of word
- */
-
-int words_n(char *str)
-{
-	int words, isLetter = 0;
-
-	while (*str)
-	{
-		if (*str != ' ')
-		{
-			if (!isLetter)
-			{
-				words++;
-				isLetter = 1;
-			}
-		}
-		else
-			isLetter = 0;
-		str++;
-	}
-
-	return (words);
-}
+int count_words(char *str);
+char *strdup_range(char *start, char *end);
 
 /**
  * strtow - splits a string into words
- * @str: word to split
- *
- * Return: pointer to array of strings, NULL if it fails
+ * @str: the string
+ * Return: a pointer to the array of words
  */
-
 char **strtow(char *str)
 {
-	char **tow;
-	int i = 0, j, start = 0, end = 0, words, len;
+    if (str == NULL || *str == '\0')
+        return NULL;
 
-	if (str == NULL || *str == '\0' || *str == ' ')
-		return (NULL);
-	words = words_n(str);
-	tow = malloc(sizeof(char *) * (words + 1));
-	if (tow == NULL)
-		return (NULL);
+    int num_words = count_words(str);
+    if (num_words == 0)
+        return NULL;
 
-	while (str[end])
-	{
-		if (str[end] != ' ' && (str[end + 1] == ' ' || str[end + 1] == '\0'))
-		{
-			len = end - start + 1;
-			tow[i] = malloc(sizeof(char) * (len + 1));
-			if (tow[i] == NULL)
-			{
-				for (j = 0; j < i; j++)
-					free(tow[i]);
-				free(tow);
-				return (NULL);
-			}
+    char **words = malloc((num_words + 1) * sizeof(char *));
+    if (words == NULL)
+        return NULL;
 
-			for (j = 0; j < len; j++)
-				tow[i][j] = str[start + j];
-			tow[i][j] = '\0';
-			i++;
-		}
-		if (str[end] != ' ')
-		{
-			if (start == -1)
-				start = end;
-		}
-		else
-			start = -1;
-		end++;
-	}
-	tow[i] = NULL;
-	return (tow);
+    int i = 0;
+    while (*str != '\0')
+    {
+        if (*str != ' ')
+        {
+            char *word_start = str;
+            while (*str != ' ' && *str != '\0')
+                str++;
+
+            char *word_end = str;
+            words[i] = strdup_range(word_start, word_end);
+            if (words[i] == NULL)
+            {
+                while (i > 0)
+                    free(words[--i]);
+                free(words);
+                return NULL;
+            }
+            i++;
+        }
+        else
+        {
+            str++;
+        }
+    }
+
+    words[i] = NULL; // Set the last element to NULL to mark the end of the array of words
+    return words;
+}
+
+/**
+ * count_words - counts the number of words in a string
+ * @str: the string
+ * Return: the number of words
+ */
+int count_words(char *str)
+{
+    int count = 0;
+    int in_word = 0;
+
+    while (*str != '\0')
+    {
+        if (*str != ' ')
+        {
+            if (!in_word)
+            {
+                count++;
+                in_word = 1;
+            }
+        }
+        else
+        {
+            in_word = 0;
+        }
+        str++;
+    }
+
+    return count;
+}
+
+/**
+ * strdup_range - duplicates a range of characters from start to end
+ * @start: pointer to the start of the range
+ * @end: pointer to the end of the range
+ * Return: a pointer to the duplicated range
+ */
+char *strdup_range(char *start, char *end)
+{
+    int length = end - start;
+    char *duplicate = malloc(length + 1);
+
+    if (duplicate == NULL)
+        return NULL;
+
+    for (int i = 0; i < length; i++)
+        duplicate[i] = start[i];
+
+    duplicate[length] = '\0';
+    return duplicate;
 }
