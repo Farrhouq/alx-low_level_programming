@@ -9,29 +9,67 @@
  */
 char **strtow(char *str)
 {
-	int i, j, wc, start, rwc;
+	int i, l, j, wc, wl, wa, start;
 	char *word, **array;
 
+	(void)start;
+	(void)word;
+	(void)array;
 	if (str == NULL)
 		return (NULL);
-	i = 0;
-	wc = 0;
+
 	while (str[i] != '\0')
+		i++;
+
+	if (i == 0)
+		return (NULL);
+
+	for (j = 0; j < i; j++)
 	{
-		if (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0')
+		if (str[j] != ' ')
 		{
 			wc++;
+			while (str[j] != ' ' && j < i)
+				j++;
 		}
-		i++;
+	}
+	if (wc == 0)
+		return (NULL);
+	array = malloc(sizeof(char *) * (wc + 1));
+
+
+
+	wa = 0;
+	for (j = 0; j < i; j++)
+	{	
+		if (str[j] != ' ')
+		{
+			wl = 0;	
+			start = j;
+			while (str[j] != ' ' && j < i)
+			{
+				j++;
+				wl++;
+			}
+			word = malloc(sizeof(char) * wl);
+			
+			for (l = 0; l < wl; l++)
+			{
+				word[l] = str[l + start];
+			}
+
+			array[wa] = word;
+			wa++;
+		}
 	}
 
-
+	/*
 	i = 0;
 	start = 0;
-	array = malloc(sizeof(char *) * (wc + 1));
 	if (array == NULL)
 		return (NULL);
-	rwc = wc;
+
+	printf("number of words: %d\n", wc);
 	wc = 0;
 	while (str[i] != '\0')
 	{
@@ -50,11 +88,10 @@ char **strtow(char *str)
 			start = i + 1;
 			array[wc] = word;
 			wc++;
-			if (wc >= rwc + 1)
-				return (array);
 		}
 		else
 			i++;
 	}
+	*/
 	return (array);
 }
