@@ -26,8 +26,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	}
 
-	lim = old_size;
+	lim = (old_size < new_size) ? old_size : new_size;
 	nptr = malloc(new_size);
+	if (nptr ==  NULL)
+		return (NULL);
 	npc = (char *)nptr;
 	if (nptr == NULL)
 		return (NULL);
