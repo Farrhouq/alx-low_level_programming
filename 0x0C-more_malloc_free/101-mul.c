@@ -110,6 +110,7 @@ void multiplyArgs(char *arg1, char *arg2)
 	}
 	for (j = dignum - 1; j >= 0; j--)
 		_putchar(digarr[j]);
+	_putchar('\n');
 }
 
 /**
