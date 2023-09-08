@@ -2,17 +2,18 @@
 #include <stdlib.h>
 
 /**
- * malloc_checked - allocates a memory using malloc
- * @b: size of memory to allocate
- * Return: returns pointer to mamory area
- */
-
+ * malloc_checked - allocates memory using malloc
+ * @b: the size of memory
+ * Return: the pointer to the address or exits
+*/
 void *malloc_checked(unsigned int b)
 {
-	void *t;
+	void *s;
 
-	t = malloc(b);
-	if (t == NULL)
+	s = malloc(b);
+	if (s == NULL)
+	{
 		exit(98);
-	return (t);
+	}
+	return (s);
 }
