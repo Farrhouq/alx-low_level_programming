@@ -24,13 +24,16 @@ def handle_tabs(line):
 def handle_return_brackets(line):
     line = line.rstrip()
     if "return" in line:
+        line = line.rstrip(';')
         start_index = line.index("return")
         mini = line[start_index:].split()
         t = f"{mini[0]} ({' '.join(mini[1:])})"
         mini[1] = f"({mini[1]})"
 
+        t = line[:start_index] + t
         if t is not None:
-            return t
+            return t + ';'
+    
     return line
 
 
