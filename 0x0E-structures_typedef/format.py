@@ -45,8 +45,8 @@ if __name__ == "__main__":
             if line != '':
                 pass
                 line = handle_tabs(line)
-                # line = handle_return_brackets(line)
-                # line = handle_trailing_space(line)
+                line = handle_return_brackets(line)
+                line = handle_trailing_space(line)
             file.write(line)
         if lines[0] != '':
             file.write('\n')
