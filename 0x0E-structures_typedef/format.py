@@ -18,9 +18,8 @@ def handle_tabs(line):
         return new
     return ''
 
+
 # handle return brackets
-
-
 def handle_return_brackets(line):
     line = line.rstrip()
     if "return" in line:
