@@ -49,5 +49,5 @@ if __name__ == "__main__":
                 # line = handle_trailing_space(line)
             file.write(line)
         if lines[0] != '':
-            file.write('')
+            file.write('\n')
         file.close()
