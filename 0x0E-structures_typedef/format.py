@@ -33,7 +33,6 @@ def handle_return_brackets(line):
         t = line[:start_index] + t
         if t is not None:
             return t + ';'
-    
     return line
 
 
@@ -51,6 +50,6 @@ if __name__ == "__main__":
                 line = handle_return_brackets(line)
                 line = handle_trailing_space(line)
             file.write(line)
-        if lines[0] != '':
-            file.write('\n')
+        if lines[-1] != '':
+            file.write('')
         file.close()
