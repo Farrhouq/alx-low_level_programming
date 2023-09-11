@@ -4,30 +4,24 @@
 #include <stdlib.h>
 
 /**
- * struct dog - like a normal dog
- * @name: the dog's name
- * @age: the dog's age
- * @owner: who owns the dog
-*/
-struct dog
+ * struct dog - all about a dog
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: dog's owner
+ *
+ */
+
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
-
 void print_dog(struct dog *d);
-
-
-/**
- * dog_t - shortcut for struct dog
-*/
-typedef struct dog dog_t;
-
 dog_t *new_dog(char *name, float age, char *owner);
-
+char *_strcpy(char *dest, char *src);
 void free_dog(dog_t *d);
 
 #endif
