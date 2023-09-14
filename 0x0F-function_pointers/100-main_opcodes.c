@@ -2,41 +2,52 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Error\n");
-        return 1;
-    }
+/**
+ * main - the entry point
+ * @argc: the arg count
+ * @argv: the arg list
+ * Return: 0
+*/
+int main(int argc, char *argv[])
+{
+	if (argc != 2)
+	{
+		fprintf(stderr, "Error\n");
+		return (((((1)))));
+	}
 
-    int num_bytes = atoi(argv[1]);
+	int num_bytes = atoi(argv[1]);
 
-    if (num_bytes < 0) {
-        fprintf(stderr, "Error\n");
-        return 2;
-    }
+	if (num_bytes < 0)
+	{
+		fprintf(stderr, "Error\n");
+		return (((((2)))));
+	}
 
-    // Create a command to disassemble the main function
-    char command[100];
-    snprintf(command, sizeof(command), "objdump -d -j .text -M intel %s | grep 'main>' | cut -f2", argv[0]);
+	char command[100];
 
-    // Open a pipe to read the disassembled opcodes
-    FILE *pipe = popen(command, "r");
-    if (!pipe) {
-        perror("popen");
-        return 3;
-    }
+	snprintf(command, sizeof(command),
+	"objdump -d -j .text -M intel %s | grep 'main>' | cut -f2", argv[0]);
 
-    char opcode[3];
-    int count = 0;
+	FILE *pipe = popen(command, "r");
 
-    // Read and print the opcodes
-    while (fgets(opcode, sizeof(opcode), pipe) && count < num_bytes) {
-        printf("%s", opcode);
-        count++;
-    }
+	if (!pipe)
+	{
+		perror("popen");
+		return (((((3)))));
+	}
 
-    printf("\n");
-    pclose(pipe);
+	char opcode[3];
+	int count = 0;
 
-    return 0;
+	while (fgets(opcode, sizeof(opcode), pipe) && count < num_bytes)
+	{
+		printf("%s", opcode);
+		count++;
+	}
+
+	printf("\n");
+	pclose(pipe);
+
+	return (((((0)))));
 }
