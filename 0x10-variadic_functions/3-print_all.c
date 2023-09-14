@@ -36,9 +36,11 @@ void print_all(const char *const format, ...)
 		case 's':
 			cs = va_arg(args, char *);
 			if (cs == NULL)
+            {
 				printf("(nil)");
-			else
-				printf("%s", cs);
+                break;
+            }
+			printf("%s", cs);
 			break;
 		}
 		if ((format[iter - 1] == 'c' || format[iter - 1] == 'f' ||
