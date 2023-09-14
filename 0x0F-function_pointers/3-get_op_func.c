@@ -20,9 +20,21 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
-	while (*s != ops[i].op[0])
+    
+	while (*s != *ops[i].op)
 	{
-		i++;
+	    i++;
+        if (i == 5)
+        {
+            break;
+        }
 	}
+    
+   /*
+   (void) s;
+    if (*ops[7].op == "")
+    {
+        printf("%s\n", ops[7].op);
+    }*/
 	return (ops[i].f);
 }

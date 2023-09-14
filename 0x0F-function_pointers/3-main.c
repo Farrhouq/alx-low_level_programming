@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	func = get_op_func(opr);
 	if (func == NULL)
 	{
-		printf("Error - 99\n");
+		printf("Error\n");
 		return (99);
 	}
 	res = func(op1, op2);
