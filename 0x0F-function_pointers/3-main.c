@@ -1,6 +1,7 @@
 #include "3-calc.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - computes an arithmetic operation
@@ -36,7 +37,7 @@ int main(int argc, char **argv)
 	(void) func;
 
 	func = get_op_func(opr);
-	if (func == NULL)
+	if (func == NULL || strlen(opr) > 1)
 	{
 		printf("Error\n");
 		return (99);

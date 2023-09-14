@@ -30,11 +30,5 @@ int (*get_op_func(char *s))(int, int)
         }
 	}
     
-   /*
-   (void) s;
-    if (*ops[7].op == "")
-    {
-        printf("%s\n", ops[7].op);
-    }*/
 	return (ops[i].f);
 }
