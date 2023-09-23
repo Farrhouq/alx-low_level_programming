@@ -1,7 +1,7 @@
-#include "lists.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "lists.h"
 
 /**
  * main - check the code
@@ -24,18 +24,11 @@ int main(void)
     }
     new->str = strdup("Hello");
     new->len = 5;
-    new->next = NULL;
-    /*head = new;
-    n = print_list(head);
+    new->next = head;
+    head = new;
+    n = list_len(head);
     printf("-> %lu elements\n", n);
-
-    printf("\n");
     free(new->str);
-    new->str = NULL;
-
-    free(new);*/
-    n = print_list(head);
-    printf("-> %lu elements\n", n);
-    (void) head;
+    free(new);
     return (0);
 }
