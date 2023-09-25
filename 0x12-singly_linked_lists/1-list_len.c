@@ -9,20 +9,16 @@
  */
 size_t list_len(const list_t *h)
 {
-	list_t i = *h;
+	list_t *i = h;
 	int count = 0;
 
 	if (h == NULL)
 		return (0);
 
-	while (1)
+	while (i != NULL)
 	{
+		i = i->next;
 		count++;
-		if (i.next == NULL)
-		{
-			return (count);
-		}
-		i = *(i.next);
 	}
 
 	return (count);
