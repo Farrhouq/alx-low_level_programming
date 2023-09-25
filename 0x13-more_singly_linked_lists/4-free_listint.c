@@ -6,7 +6,7 @@
 */
 void free_listint(listint_t *head)
 {
-    listint_t *i, *next;
+	listint_t *i, *next;
 
 	i = head;
 	while (i != NULL)
