@@ -39,13 +39,13 @@ int _atoi(char *s)
 	}
 
 	if (minus % 2 != 0)
-    {
-        if (res <= INT_MIN)
-        {
-            return INT_MIN;
-        }
-        res = -res;
-    }
+	{
+		if (res <= INT_MIN)
+		{
+			return INT_MIN;
+		}
+		res = -res;
+	}
 
-    return res;
+	return res;
 }
