@@ -32,7 +32,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
     shash_node_t *node;
     unsigned long int index;
-    shash_node_t *head, *tr;
+    shash_node_t *head, *tr, *temp;
     char *val = strdup(value);
 
     (void)tr;
@@ -47,6 +47,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
     node->key = (char *)key;
     node->next = NULL;
     node->value = val;
+    node->snext = NULL;
+    node->sprev = NULL;
 
     index = key_index((const unsigned char *)key, ht->size);
 
@@ -60,6 +62,32 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
             ht->shead = node;
             ht->stail = node;
             return (1);
+        }
+
+        tr = head;
+
+        if (strcmp(node->key, tr->key) < 0)
+        {
+            temp = ht->shead;
+            temp->sprev = node;
+            ht->shead = node;
+            node->snext = temp;
+            return (1);
+        }
+
+        while (tr != NULL)
+        {
+            if (strcmp(node->key, tr->key) >= 0)
+            {
+                temp = tr->snext;
+                tr->snext = node;
+                node->snext = temp;
+                node->sprev = tr;
+                if (node->snext == NULL)
+                    ht->stail = node;
+                return (1);
+            }
+            tr = tr->next;
         }
     }
     else
@@ -86,25 +114,21 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 void shash_table_print(const shash_table_t *ht)
 {
-    shash_node_t *head;
-    unsigned long int i = 0;
+    shash_node_t *head, *tr;
     int printed = 0;
-
-    (void) head;
 
     head = ht->shead;
 
+    tr = head;
     printf("{");
-    for (i = 0; i < ht->size; i++)
+    while (tr != NULL)
     {
-        if (ht->array[i] != NULL)
-        {
-            if (printed)
-                printf(", ");
+        if (printed)
+            printf(", ");
 
-            printf("%s: %s", ht->array[i]->key, ht->array[i]->value);
-            printed = 1;
-        }
+        printf("%s: %s", tr->key, tr->value);
+        printed = 1;
+        tr = tr->snext;
     }
     printf("}\n");
 }
