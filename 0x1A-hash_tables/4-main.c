@@ -13,7 +13,9 @@ int main(void)
     hash_table_t *ht;
     char *value;
 
+
     ht = hash_table_create(1024);
+    ht = NULL;
     hash_table_set(ht, "c", "fun");
     hash_table_set(ht, "python", "awesome");
     hash_table_set(ht, "Bob", "and Kris love asm");
@@ -39,5 +41,7 @@ int main(void)
     printf("%s:%s\n", "c", value);
     value = hash_table_get(ht, "javascript");
     printf("%s:%s\n", "javascript", value);
+
+    printf("%s:%s\n", "", value);
     return (EXIT_SUCCESS);
 }
