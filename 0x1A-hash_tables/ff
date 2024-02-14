@@ -1,0 +1,21 @@
+// shash_node_t *tr, *temp;
+
+        // tr = old_node_head;
+        // while (tr != NULL)
+        // {
+        //     if (strcmp(tr->key, key) < 0)
+        //     {
+        //         // then we know that this is the first one our key is bigger than
+        //         // so we should place it exactly, after this
+        //         if (tr->next == NULL)
+        //         {
+        //             tr->next = node;
+        //             return (1);
+        //         }
+        //         temp = tr->next->next;
+        //         tr->next = node;
+        //         node->next = temp;
+        //         return (1);
+        //     }
+        //     tr = tr->next;
+        // }
