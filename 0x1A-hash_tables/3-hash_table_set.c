@@ -29,7 +29,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->next = NULL;
 	node->value = val;
 
-	/*if (ht->array[index] != NULL)
+	if (ht->array[index] != NULL)
 	{
 		old_node = ht->array[index];
 		ht->array[index] = node;
@@ -37,9 +37,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-	}*/
-	(void) old_node;
 		ht->array[index] = node;
+	}
 
 	return (1);
 }
