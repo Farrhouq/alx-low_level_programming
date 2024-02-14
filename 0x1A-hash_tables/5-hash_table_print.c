@@ -10,7 +10,6 @@ void hash_table_print(const hash_table_t *ht)
 	int printed = 0;
 	hash_node_t *head;
 
-	(void)i;
 	if (ht == NULL)
 		return;
 
