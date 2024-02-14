@@ -7,11 +7,11 @@
  * @value: the value of the new key
  *
  * Return: 1 on success, 0 otherwise
-*/
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long index;
-	hash_node_t *node, *old_node;
+	hash_node_t *node, *old_node, *s_node;
 	char *val = strdup(value);
 
 	if (ht == NULL)
@@ -32,12 +32,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index] != NULL)
 	{
 		old_node = ht->array[index];
-		
-		if (strcmp(old_node->key, key) == 0)
+		s_node = old_node;
+
+		while (s_node != NULL)
 		{
-			old_node->value = val;
-			free(node);
-			return (1);
+			if (strcmp(s_node->key, key) == 0)
+			{
+				s_node->value = val;
+				free(node);
+				return (1);
+			}
+			s_node = s_node->next;
 		}
 
 		ht->array[index] = node;
