@@ -23,14 +23,3 @@ def island_perimeter(grid):
         old_land_indices = new_land_indices
 
     return total_perimeter
-
-
-# if __name__ == "__main__":
-#     grid = [
-#         [0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0]
-#     ]
-#     print(island_perimeter(grid))
