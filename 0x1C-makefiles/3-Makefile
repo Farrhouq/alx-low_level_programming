@@ -8,7 +8,7 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) $(wildcard *~) school
+	$(RM) $(wildcard *~) $(NAME)
 
 oclean:
 	$(RM) $(OBJ)
