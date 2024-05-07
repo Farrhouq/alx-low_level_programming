@@ -1,15 +1,15 @@
-CC = gcc
 SRC = school.c main.c
 OBJ = $(SRC:%.c=%.o)
 NAME = school
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
+CC = gcc
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c
-        $(CC) $(CFLAGS) -c $< -o $@
+%: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(wildcard *~) $(NAME)
