@@ -8,5 +8,5 @@ all: ${OBJ} $(NAME)
 %: %.c
 	$(CC) -c -o $@ $&lt;
 
-$(NAME): main.o school.o
-	$(CC) $(OBJ) -o school
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
