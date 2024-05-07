@@ -22,7 +22,7 @@ def island_perimeter(grid):
                 else:
                     row_perimeter += stre*2 + 2 if stre else 0
                     stre = 1
-        
+
         joining_points = [j for j in range(
             len(row)) if j in new_land_indices and j in old_land_indices]
         row_perimeter -= 2*len(joining_points)
